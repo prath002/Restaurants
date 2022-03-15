@@ -1,10 +1,32 @@
-import React from "react";
-import Navbar from "./Navbar"
+import React, {useState} from "react";
+import Home from "./Home";
+import Contact from "./Contact";
+import Order from "./Order";
+
 
 const App = ()=>{
+
+    const [signin, setSignin] = useState(false);
+
+
+    const page = ()=>{
+        if(window.location.pathname==="/"){
+            return <Home 
+            singin={signin} 
+            setSignin={setSignin}
+            />
+        }
+        if(window.location.pathname==="/contact"){
+            return <Contact />
+        }
+        if(window.location.pathname==="/order"){
+            return <Order />
+        }
+    }
+
     return (
         <div>
-            <Navbar />
+            {page()}
 
             {/* <h1>
                 Black Spoon
